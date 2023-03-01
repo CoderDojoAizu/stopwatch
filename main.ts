@@ -1,5 +1,5 @@
-let 計測開始時間 = 0
-let 測定時間 = 0
+let スタート = 0
+let ストップ = 0
 input.onButtonPressed(Button.A, function () {
     basic.showLeds(`
         . . . . .
@@ -8,14 +8,14 @@ input.onButtonPressed(Button.A, function () {
         . . # . .
         . . . . .
         `)
-    計測開始時間 = input.runningTime()
+    スタート = input.runningTime()
 })
 input.onButtonPressed(Button.B, function () {
-    if (計測開始時間 > 0) {
-        測定時間 = (input.runningTime() - 計測開始時間) / 1000
-        basic.showNumber(測定時間)
-        計測開始時間 = 0
+    if (スタート > 0) {
+        ストップ = (input.runningTime() - スタート) / 1000
+        basic.showNumber(ストップ)
+        スタート = 0
     } else {
-        basic.showNumber(測定時間)
+        basic.showNumber(ストップ)
     }
 })
